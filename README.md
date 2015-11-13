@@ -85,6 +85,12 @@ export CHRONOS_URL=http://localhost
 ./chronos-shuttle del test-1
 ```
 
+### TODO
+
+- [ ] Auto binary release
+- [ ] Add tests
+- [ ] Proxy support
+
 ### License
 
 Licensed under The MIT License (MIT)  
