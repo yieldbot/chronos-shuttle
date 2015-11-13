@@ -46,7 +46,7 @@ func Run() {
 	// Init cli
 	cli = gocli.Cli{
 		AppName:    "chronos-shuttle",
-		AppVersion: "1.0.0",
+		AppVersion: "1.1.1",
 		AppDesc:    "An opinionated CLI for Chronos",
 		CommandList: map[string]string{
 			"jobs":  "Retrieve jobs",
