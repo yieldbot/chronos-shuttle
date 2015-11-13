@@ -1,0 +1,8 @@
+{
+  "schedule": "R/2015-11-09T00:00:00Z/PT24H",
+  "name": "test-2",
+  "epsilon": "PT30M",
+  "command": "echo test-2 && sleep 60",
+  "owner": "localhost@localhsot",
+  "async": false
+}

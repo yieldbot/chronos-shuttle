@@ -10,7 +10,9 @@ package app
 import (
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/yieldbot/chronos-client"
@@ -53,6 +55,7 @@ func Run() {
 			"kill":  "Kill tasks of the job",
 			"del":   "Delete a job",
 			"graph": "Retrieve the dependency graph",
+			"sync":  "Sync jobs via a file or directory",
 		},
 	}
 	cli.Init()
@@ -91,6 +94,9 @@ func Run() {
 		} else if cli.Command == "graph" {
 			// Get the dependency graph
 			runGraphCmd()
+		} else if cli.Command == "sync" {
+			// Sync jobs
+			runSyncCmd()
 		}
 	} else if versionFlag || versionExtFlag {
 		// Version
@@ -116,7 +122,7 @@ func runAddCmd() {
 		jobj = cli.CommandArgs[0]
 	}
 
-	// Run the job
+	// Add the job
 	if ok, err := chronosClient.AddJob(jobj); !ok && err != nil {
 		cli.LogErr.Fatal(err) // fatal error
 	} else if err != nil {
@@ -190,5 +196,60 @@ func runGraphCmd() {
 		cli.LogErr.Fatal(err) // fatal error
 	} else {
 		fmt.Print(res)
+	}
+}
+
+// syncFile syncs the given file
+func syncFile(path string) {
+	// Read file
+	buf, err := ioutil.ReadFile(path)
+	if err != nil {
+		cli.LogErr.Fatal(err)
+	}
+
+	// Add the job
+	if ok, err := chronosClient.AddJob(string(buf)); !ok && err != nil {
+		cli.LogErr.Fatal(err) // fatal error
+	} else if err != nil {
+		cli.LogErr.Println(err) // print error
+	} else {
+		cli.LogOut.Printf("%s is synced\n", path)
+	}
+}
+
+// walkFn called for each directory during walk function execution
+func walkFn(path string, info os.FileInfo, err error) error {
+	// If it is not a directory then
+	if !info.IsDir() {
+		// Sync the file
+		syncFile(path)
+	}
+	return nil
+}
+
+// runSyncCmd runs the sync command
+func runSyncCmd() {
+	// Get the file or directory path
+	var path string
+	if len(cli.CommandArgs) > 0 {
+		path = cli.CommandArgs[0]
+	}
+
+	// Check file
+	var fi os.FileInfo
+	fi, err := os.Stat(path)
+	if os.IsNotExist(err) {
+		cli.LogErr.Fatal("no such file or directory: " + path) // fatal error
+	}
+
+	// If it is a file than
+	if !fi.IsDir() {
+		// Sync the file
+		syncFile(path)
+	} else {
+		// Otherwise recursively sync files
+		if err := filepath.Walk(path, walkFn); err != nil {
+			cli.LogErr.Fatal(err)
+		}
 	}
 }

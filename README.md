@@ -38,6 +38,7 @@ Commands:
   jobs          : Retrieve jobs
   kill          : Kill tasks of the job
   run           : Run a job
+  sync          : Sync jobs via a file or directory
 ```
 
 #### Setting Chronos Url
@@ -83,6 +84,12 @@ export CHRONOS_URL=http://localhost
 
 ```bash
 ./chronos-shuttle del test-1
+```
+
+#### Syncing jobs
+
+```bash
+./chronos-shuttle sync examples/
 ```
 
 ### TODO
