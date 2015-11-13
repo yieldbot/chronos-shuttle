@@ -56,6 +56,18 @@ export CHRONOS_URL=http://localhost
 ./chronos-shuttle jobs
 ```
 
+#### Syncing jobs
+
+Syncing a file
+```bash
+./chronos-shuttle sync examples/job-1.json
+```
+
+Syncing a directory
+```bash
+./chronos-shuttle sync examples/
+```
+
 #### Adding a job
 
 ```bash
@@ -84,18 +96,6 @@ export CHRONOS_URL=http://localhost
 
 ```bash
 ./chronos-shuttle del test-1
-```
-
-#### Syncing jobs
-
-Syncing a file
-```bash
-./chronos-shuttle sync examples/job-1.json
-```
-
-Syncing a directory
-```bash
-./chronos-shuttle sync examples/
 ```
 
 ### TODO
