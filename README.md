@@ -6,6 +6,15 @@ An opinionated CLI for Chronos
 
 ### Installation
 
+#### Binary releases
+
+| Linux | OSX |
+|:---:|:---:|
+| [64bit](https://github.com/yieldbot/chronos-shuttle/releases/download/v1.1.0/chronos-shuttle-linux-amd64.zip) | [64bit](https://github.com/yieldbot/chronos-shuttle/releases/download/v1.1.0/chronos-shuttle-osx-amd64.zip) |
+
+See all [releases](https://github.com/yieldbot/chronos-shuttle/releases)
+
+#### Building from source
 ```
 go get github.com/yieldbot/chronos-shuttle
 cd $GOPATH/src/github.com/yieldbot/chronos-shuttle
