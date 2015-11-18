@@ -21,15 +21,15 @@ import (
 )
 
 var (
-	cli            gocli.Cli
-	chronosURL     string
-	chronosClient  client.Client
-	usageFlag      bool
-	versionFlag    bool
-	versionExtFlag bool
-	prettyPrint    bool
-	chronosFlag    string
-	proxyFlag      string
+	cli             gocli.Cli
+	chronosURL      string
+	chronosClient   client.Client
+	usageFlag       bool
+	versionFlag     bool
+	versionExtFlag  bool
+	prettyPrintFlag bool
+	chronosFlag     string
+	proxyFlag       string
 )
 
 func init() {
@@ -38,7 +38,7 @@ func init() {
 	flag.BoolVar(&versionFlag, "version", false, "Display version information")
 	flag.BoolVar(&versionFlag, "v", false, "Display version information")
 	flag.BoolVar(&versionExtFlag, "vv", false, "Display extended version information")
-	flag.BoolVar(&prettyPrint, "pp", false, "Pretty print for JSON output")
+	flag.BoolVar(&prettyPrintFlag, "pp", false, "Pretty print for JSON output")
 	flag.StringVar(&chronosFlag, "chronos", "", "Chronos url (default \"http://localhost:8080\")")
 	flag.StringVar(&proxyFlag, "proxy", "", "Proxy url")
 }
@@ -120,7 +120,7 @@ func Run() {
 
 // runJobsCmd runs the jobs command
 func runJobsCmd() {
-	if err := chronosClient.PrintJobs(prettyPrint); err != nil {
+	if err := chronosClient.PrintJobs(prettyPrintFlag); err != nil {
 		cli.LogErr.Fatal(err)
 	}
 }
