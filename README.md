@@ -133,11 +133,11 @@ For the full copyright and license information, please view the LICENSE.txt file
 [godoc-url]: https://godoc.org/github.com/yieldbot/chronos-shuttle
 [godoc-image]: https://godoc.org/github.com/yieldbot/chronos-shuttle?status.svg
 
-[release-url]: https://github.com/yieldbot/chronos-shuttle/releases/tag/v1.1.1
-[release-image]: https://img.shields.io/badge/release-v1.1.1-blue.svg
+[release-url]: https://github.com/yieldbot/chronos-shuttle/releases/tag/v1.2.1
+[release-image]: https://img.shields.io/badge/release-v1.2.1-blue.svg
 
 [coverage-url]: https://coveralls.io/github/yieldbot/chronos-shuttle?branch=master
 [coverage-image]: https://coveralls.io/repos/yieldbot/chronos-shuttle/badge.svg?branch=master&service=github)
 
-[download-linux-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.1.1/chronos-shuttle-linux-amd64.zip
-[download-osx-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.1.1/chronos-shuttle-osx-amd64.zip
+[download-linux-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.2.1/chronos-shuttle-linux-amd64.zip
+[download-osx-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.2.1/chronos-shuttle-osx-amd64.zip
