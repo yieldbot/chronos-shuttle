@@ -23,6 +23,7 @@ import (
 var (
 	cli             gocli.Cli
 	chronosURL      string
+	proxyURL        string
 	chronosClient   client.Client
 	usageFlag       bool
 	versionFlag     bool
@@ -76,8 +77,15 @@ func Run() {
 		} else {
 			chronosURL = "http://localhost:8080"
 		}
+
 		if proxyFlag != "" {
-			p, err := url.Parse(proxyFlag)
+			proxyURL = proxyFlag
+		} else if os.Getenv("SHUTTLE_PROXY_URL") != "" {
+			proxyURL = os.Getenv("SHUTTLE_PROXY_URL")
+		}
+
+		if proxyURL != "" {
+			p, err := url.Parse(proxyURL)
 			if err != nil {
 				cli.LogErr.Fatal("invalid proxy value due to " + err.Error())
 			}
