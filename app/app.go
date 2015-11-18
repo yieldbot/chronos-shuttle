@@ -11,6 +11,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -28,6 +29,7 @@ var (
 	versionExtFlag bool
 	prettyPrint    bool
 	chronos        string
+	proxyFlag      string
 )
 
 func init() {
@@ -38,6 +40,7 @@ func init() {
 	flag.BoolVar(&versionExtFlag, "vv", false, "Display extended version information")
 	flag.BoolVar(&prettyPrint, "pp", false, "Pretty print for JSON output")
 	flag.StringVar(&chronos, "chronos", "", "Chronos url (default \"http://localhost:8080\")")
+	flag.StringVar(&proxyFlag, "proxy", "", "Proxy url")
 }
 
 // Run runs the app
@@ -73,7 +76,15 @@ func Run() {
 		} else {
 			chronosURL = "http://localhost:8080"
 		}
-		chronosClient = client.Client{URL: chronosURL}
+		if proxyFlag != "" {
+			p, err := url.Parse(proxyFlag)
+			if err != nil {
+				cli.LogErr.Fatal("invalid proxy value due to " + err.Error())
+			}
+			chronosClient = client.Client{URL: chronosURL, ProxyURL: p}
+		} else {
+			chronosClient = client.Client{URL: chronosURL}
+		}
 
 		// Run the command
 		if cli.Command == "jobs" {
