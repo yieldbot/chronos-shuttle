@@ -28,7 +28,7 @@ var (
 	versionFlag    bool
 	versionExtFlag bool
 	prettyPrint    bool
-	chronos        string
+	chronosFlag    string
 	proxyFlag      string
 )
 
@@ -39,7 +39,7 @@ func init() {
 	flag.BoolVar(&versionFlag, "v", false, "Display version information")
 	flag.BoolVar(&versionExtFlag, "vv", false, "Display extended version information")
 	flag.BoolVar(&prettyPrint, "pp", false, "Pretty print for JSON output")
-	flag.StringVar(&chronos, "chronos", "", "Chronos url (default \"http://localhost:8080\")")
+	flag.StringVar(&chronosFlag, "chronos", "", "Chronos url (default \"http://localhost:8080\")")
 	flag.StringVar(&proxyFlag, "proxy", "", "Proxy url")
 }
 
@@ -69,8 +69,8 @@ func Run() {
 	if cli.Command != "" {
 
 		// Init the Chronos client
-		if chronos != "" {
-			chronosURL = chronos
+		if chronosFlag != "" {
+			chronosURL = chronosFlag
 		} else if os.Getenv("CHRONOS_URL") != "" {
 			chronosURL = os.Getenv("CHRONOS_URL")
 		} else {
