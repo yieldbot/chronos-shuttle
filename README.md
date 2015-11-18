@@ -35,6 +35,7 @@ An opinionated CLI for Chronos
 
 Options:
   --chronos     : Chronos url (default "http://localhost:8080")
+  --proxy       : Proxy url
   -h, --help    : Display usage
   -pp           : Pretty print for JSON output
   -v, --version : Display version information
@@ -58,6 +59,15 @@ command or set ENV variable with following command
 ```bash
 export CHRONOS_URL=http://localhost
 ```
+
+#### Setting Proxy Url
+
+You can use `--proxy` argument on each command or set ENV variable with following command
+
+```bash
+export SHUTTLE_PROXY_URL=http://localhost:8892
+```
+
 
 #### Getting jobs
 
@@ -111,7 +121,6 @@ Syncing a directory
 
 - [ ] Auto binary release
 - [ ] Add tests
-- [ ] Proxy support
 
 ### License
 
