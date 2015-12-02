@@ -2,13 +2,13 @@
 .idea
 .settings
 .env
-*.log
-*.heapsnapshot
-*.pprof
 .coverrun
 .coverdata
 cover.out
 xunit.xml
+*.log
+*.heapsnapshot
+*.pprof
 tmp/
 logs/
 reports/
