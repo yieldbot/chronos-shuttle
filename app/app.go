@@ -4,7 +4,7 @@
  * For the full copyright and license information, please view the LICENSE.txt file.
  */
 
-// Package app package provides the app information
+// Package app provides the app information
 package app
 
 import (
