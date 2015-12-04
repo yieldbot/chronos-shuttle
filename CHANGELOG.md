@@ -1,5 +1,9 @@
 ## Changelog
 
+### 1.2.2 (2015-12-04)
+
+* Maintenance
+
 ### 1.2.1 (2015-11-18)
 
 * Add proxy support
