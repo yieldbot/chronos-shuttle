@@ -1,8 +1,7 @@
-def tools = load 'tools.groovy'
-  
 node {
   stage 'Build'
-  tools.setEnv('go', '1.5')
+  def tools = load 'tools.groovy'
+  tools.setTool('go', '1.5')
   sh 'env'
   sh 'go get github.com/golang/lint/golint'
   sh 'go get -t -v ./...'
