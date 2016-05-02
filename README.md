@@ -79,12 +79,12 @@ export SHUTTLE_PROXY_URL=http://localhost:8892
 
 Syncing a file
 ```bash
-./chronos-shuttle sync examples/job-1.json
+./chronos-shuttle sync examples/jobs/job-1.json
 ```
 
 Syncing a directory
 ```bash
-./chronos-shuttle sync examples/
+./chronos-shuttle sync examples/jobs/
 ```
 
 #### Adding a job
