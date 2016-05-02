@@ -50,7 +50,7 @@ func main() {
 	// Init cli
 	cli = gocli.Cli{
 		Name:        "chronos-shuttle",
-		Version:     "1.2.2",
+		Version:     "1.2.3",
 		Description: "An opinionated CLI for Chronos",
 		Commands: map[string]string{
 			"jobs":  "Retrieve jobs",
