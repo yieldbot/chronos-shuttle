@@ -10,7 +10,7 @@ An opinionated CLI for Chronos
 
 | Linux | OSX |
 |:---:|:---:|
-| [64bit][download-linux-amd64-url] | [64bit][download-osx-amd64-url] |
+| [64bit][download-linux-amd64-url] | [64bit][download-darwin-amd64-url] |
 
 See all [releases](https://github.com/yieldbot/chronos-shuttle/releases)
 
@@ -140,4 +140,4 @@ For the full copyright and license information, please view the LICENSE.txt file
 [coverage-image]: https://coveralls.io/repos/yieldbot/chronos-shuttle/badge.svg?branch=master&service=github)
 
 [download-linux-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.2.3/chronos-shuttle-linux-amd64.zip
-[download-osx-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.2.3/chronos-shuttle-osx-amd64.zip
+[download-darwin-amd64-url]: https://github.com/yieldbot/chronos-shuttle/releases/download/v1.2.3/chronos-shuttle-darwin-amd64.zip
