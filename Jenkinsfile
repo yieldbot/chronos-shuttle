@@ -1,7 +1,8 @@
 node {
-  stage 'Build'
   def utils = load 'utils.groovy'
   utils.setEnv('go', '1.6')
+
+  stage 'Build'
   sh '''
     if [ ! -d src/github.com/yieldbot/chronos-shuttle/ ]; then
       git clone --depth 1 https://github.com/yieldbot/chronos-shuttle.git src/github.com/yieldbot/chronos-shuttle
