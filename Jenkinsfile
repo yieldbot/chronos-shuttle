@@ -18,14 +18,16 @@ node {
 
   stage 'Publish'
   sh '''
-    APP_VERSION="1.0.0" # read from somewhere
-    APP_FILE="chronos-shuttle-$APP_VERSION-linux-amd64.tar.gz"
-    tar -cvzf $APP_FILE bin/chronos-shuttle
-    #jfrog rt u $APP_FILE yieldbot-golang/chronos-shuttle/ --url=https://artifactory.yb0t.cc/artifactory --dry-run
+    PACKAGE_NAME="chronos-shuttle" # read from git
+    PACKAGE_VERSION="1.2.3" # read from git
+    PACKAGE_FILE="$PACKAGE_NAME-$PACKAGE_VERSION-linux-amd64.tar.gz"
+    tar -cvzf $PACKAGE_FILE bin/$PACKAGE_NAME
+    # not implemented yet
+    echo "jfrog rt u $PACKAGE_FILE yieldbot-golang/$PACKAGE_NAME/$PACKAGE_VERSION/ --url=https://artifactory.yb0t.cc/artifactory --dry-run"
   '''
 
   stage 'Deploy'
   sh '''
-    #singularity request sync ...
+    # not implemented yet
   '''
 }
