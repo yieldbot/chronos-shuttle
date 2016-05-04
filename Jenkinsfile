@@ -5,7 +5,8 @@ node {
   stage 'Build'
   sh 'mkdir -p src/github.com/yieldbot/chronos-shuttle'
   dir('src/github.com/yieldbot/chronos-shuttle') {
-    git url: 'https://github.com/yieldbot/chronos-shuttle.git'
+    //git url: 'https://github.com/yieldbot/chronos-shuttle.git'
+    checkout scm
   }
   sh '''
     env
