@@ -5,9 +5,10 @@ node {
   stage 'Build'
   sh 'mkdir -p src/github.com/yieldbot/chronos-shuttle'
   dir('src/github.com/yieldbot/chronos-shuttle') {
-    git branch: 'master', url: 'https://github.com/yieldbot/chronos-shuttle.git'
+    git url: 'https://github.com/yieldbot/chronos-shuttle.git'
   }
   sh '''
+    env
     cd src/github.com/yieldbot/chronos-shuttle
     go get -t -v ./...
     go get github.com/golang/lint/golint
