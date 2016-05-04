@@ -1,14 +1,14 @@
 node {
-  def utils = load 'utils.groovy'
-  utils.setEnv('go', '1.6')
+
+  slsSetEnv('go', '1.6')
 
   stage 'Build'
+  sh 'mkdir -p src/github.com/yieldbot/chronos-shuttle'
+  dir('src/github.com/yieldbot/chronos-shuttle') {
+    git branch: 'master', url: 'https://github.com/yieldbot/chronos-shuttle.git'
+  }
   sh '''
-    if [ ! -d src/github.com/yieldbot/chronos-shuttle/ ]; then
-      git clone --depth 1 https://github.com/yieldbot/chronos-shuttle.git src/github.com/yieldbot/chronos-shuttle
-    fi
     cd src/github.com/yieldbot/chronos-shuttle
-    git pull
     go get -t -v ./...
     go get github.com/golang/lint/golint
     OUT=`gofmt -l .`; if [ "$OUT" ]; then echo $OUT; exit 1; fi
@@ -30,4 +30,5 @@ node {
   sh '''
     # not implemented yet
   '''
+
 }
